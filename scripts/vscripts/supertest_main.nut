@@ -11,7 +11,6 @@ tf_gamerules.ValidateScriptScope();
 IncludeScript("supertest_const.nut", this);
 IncludeScript("supertest_util.nut", this);
 
-SetPropBool(tf_gamerules, "m_bCheatsEnabledDuringLevel", true);
 StopListeningToAllGameEvents("SUPERTEST");
 
 IncludeScript("supertest_cookies.nut", this);
@@ -35,6 +34,10 @@ Convars.SetValue("tf_bot_keep_class_after_death", 1);
 Convars.SetValue("tf_player_movement_restart_freeze", 0);
 Convars.SetValue("tf2c_allow_special_classes", 1);
 ForceEnableUpgrades(2);
+
+//::cheats_enabled_beforehand <- Convars.GetInt("sv_cheats");
+Convars.SetInt("sv_cheats", 1);
+//Convars.SetInt("sv_cheats", cheats_enabled_beforehand);
 
 function TickFrame()
 {
