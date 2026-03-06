@@ -46,14 +46,14 @@
         display_name = "Grapple Hook"
         options = [0, 1]
         option_names = ["Off", "On"]
-        description = "Whether players will be prompted\nto equip a grappling hook on spawn."
+        description = "Whether players will equip a grappling hook on spawn."
     },
     {
         name = "tf_spells_enabled"
         display_name = "Spells"
         options = [0, 1]
         option_names = ["Off", "On"]
-        description = "Whether players will be prompted to\nequip a spell book on spawn."
+        description = "Whether players will equip a spell book on spawn."
     },
 ]
 
