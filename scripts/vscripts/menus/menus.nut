@@ -161,7 +161,7 @@ ListenToGameEvent("player_say", function(params)
     if(!menu)
         return;
 
-    SetScriptOverlayMaterial(CONTRACKER_HUD + "supertest_hud_" + GetMenuOpacity());
+    SetScriptOverlayMaterial(CONTRACKER_HUD + "supertest_hud" + (Cookies.Get(this, "menu_hint") ? "_tutorial" : ""));
 
     // Close Menu
     if(WasButtonJustPressed(IN_ATTACK3))

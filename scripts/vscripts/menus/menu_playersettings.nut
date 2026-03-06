@@ -1,19 +1,4 @@
-Cookies.AddCookie("menu_opacity", 0);
-
-::CTFPlayer.GetMenuOpacity <- function()
-{
-    local opactiy_value = "";
-    switch(Cookies.Get(this, "menu_opacity"))
-    {
-        case 0: opactiy_value = "100"; break;
-        case 1: opactiy_value = "75"; break;
-        case 2: opactiy_value = "50"; break;
-        case 3: opactiy_value = "0"; break;
-
-        default: opactiy_value = "100"; break;
-    }
-    return opactiy_value;
-}
+Cookies.AddCookie("menu_hint", 1);
 
 Cookies.AddCookie("menu_dai_loop", 0);
 Cookies.AddCookie("instant_respawn", 0);
@@ -27,22 +12,22 @@ DefineMenu(class extends Menu{
     function constructor(){
         items = [
             class extends MenuItem{
-                titles = ["Menu Opacity: 100%" "Menu Opacity: 75%" "Menu Opacity: 50%" "Menu Opacity: 0%"];
+                titles = ["Menu Hints: Off" "Menu Hints: On"];
 
                 function OnMenuOpened(player)
                 {
-                    index <- Cookies.Get(player, "menu_opacity");
+                    index <- Cookies.Get(player, "menu_hint");
                 }
 
                 function GenerateDesc(player)
                 {
-                    return "Set the opacity of the Super Test menu background.\nCurrent: " + player.GetMenuOpacity() + "%";
+                    return "Set whether hints show up on the Super Test menu.\nCurrent: " + (Cookies.Get(player, "menu_hint") ? "On" : "Off");
                 }
 
                 function OnSelected(player)
                 {
-                    Cookies.Set(player, "menu_opacity", index);
-                    player.SendChat(CHAT_PREFIX + "Menu Opacity is now: " + player.GetMenuOpacity() + "%");
+                    Cookies.Set(player, "menu_hint", index);
+                    player.SendChat(CHAT_PREFIX + "Menu Hints are now: " + (index ? "On" : "Off"));
                 }
             },
             class extends MenuItem{
