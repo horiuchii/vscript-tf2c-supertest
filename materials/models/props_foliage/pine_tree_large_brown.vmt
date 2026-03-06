@@ -1,6 +1,9 @@
-"VertexlitGeneric"
+"Patch"
 {
-	"$baseTexture" "models\props_foliage/pine_tree_large_brown"
-	"$alphatest" 1
-	"$nocull" 1	
+	include "materials\models\props_foliage\pine_tree_large.vmt"
+
+	insert
+	{
+		"$basetexture" "models\props_foliage/pine_tree_large_brown"
+	}
 }
