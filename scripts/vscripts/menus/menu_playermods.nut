@@ -1,3 +1,6 @@
+Cookies.AddCookie("inf_clip", 0);
+Cookies.AddCookie("see_enemy_target_id", 0);
+
 DefineMenu(class extends Menu{
     id = "player_mod"
     menu_name = "player_mod"
@@ -101,20 +104,39 @@ DefineMenu(class extends Menu{
 
                 function OnMenuOpened(player)
                 {
-                    index <- player.GetVar("inf_clip").tointeger();
+                    index <- Cookies.Get(player, "inf_clip").tointeger();
                 }
 
                 function GenerateDesc(player)
                 {
-                    return "Grants infinite weapon clip.\nCurrent: " + (player.GetVar("inf_clip") ? "On" : "Off");
+                    return "Grants infinite weapon clip.\nCurrent: " + (Cookies.Get(player, "inf_clip") ? "On" : "Off");
                 }
 
                 function OnSelected(player)
                 {
-                    player.SetVar("inf_clip", index);
-                    player.SendChat(CHAT_PREFIX + "Infinite clip is now: " + (player.GetVar("inf_clip") ? "On" : "Off"));
+                    Cookies.Set(player, "inf_clip", index);
+                    player.SendChat(CHAT_PREFIX + "Infinite clip is now: " + (Cookies.Get(player, "inf_clip") ? "On" : "Off"));
                 }
             },
+            // class extends MenuItem{
+            //     titles = ["See Enemy Target ID: Off" "See Enemy Target ID: On"];
+
+            //     function OnMenuOpened(player)
+            //     {
+            //         index <- Cookies.Get(player, "see_enemy_target_id").tointeger();
+            //     }
+
+            //     function GenerateDesc(player)
+            //     {
+            //         return "Whether you should always see enemy target ID.\nCurrent: " + (Cookies.Get(player, "see_enemy_target_id") ? "On" : "Off");
+            //     }
+
+            //     function OnSelected(player)
+            //     {
+            //         Cookies.Set(player, "see_enemy_target_id", index);
+            //         player.SendChat(CHAT_PREFIX + "Always see enemy target ID is now: " + (Cookies.Get(player, "see_enemy_target_id") ? "On" : "Off"));
+            //     }
+            // },
         ]
     }
 })

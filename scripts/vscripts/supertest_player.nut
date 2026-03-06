@@ -124,7 +124,6 @@ ListenToGameEvent("player_team", function(params)
     SetVar("last_press_menu_button", 0);
 
     SetVar("inf_cash", true);
-    SetVar("inf_clip", false);
     SetVar("invuln", false);
 
     SetVar("last_buttons", 0);
@@ -176,12 +175,14 @@ ListenToGameEvent("player_team", function(params)
         SetCurrency(30000);
     }
 
-    if(GetVar("inf_clip"))
+    AddCustomAttribute("mod see enemy health", Cookies.Get(this, "see_enemy_target_id"), -1);
+
+    if(Cookies.Get(this, "inf_clip"))
     {
         for(local i = 0; i < MAX_WEAPONS; i++)
         {
             local heldWeapon = GetPropEntityArray(this, "m_hMyWeapons", i);
-            if(heldWeapon == null)
+            if(!heldWeapon)
                 continue;
 
             heldWeapon.SetClip1(heldWeapon.GetMaxClip1());
