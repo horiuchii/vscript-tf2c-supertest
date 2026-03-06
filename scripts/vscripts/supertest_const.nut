@@ -23,13 +23,25 @@ foreach (_, cGroup in Constants)
 ::MAX_PLAYERS <- MaxClients().tointeger();
 
 ::TF_CLASS_NAMES <- [
-    "generic",
     "scout",
     "sniper",
     "soldier",
     "demo",
     "medic",
     "heavy",
+    "pyro",
+    "spy",
+    "engie",
+    "civilian"
+];
+
+::TF_CLASS_NAMES_PROPER <- [
+    "scout",
+    "sniper",
+    "soldier",
+    "demoman",
+    "medic",
+    "heavyweapons",
     "pyro",
     "spy",
     "engineer",
@@ -56,19 +68,6 @@ foreach (_, cGroup in Constants)
 
 ::OPEN_MENU_DOUBLEPRESS_TIME <- 0.35;
 ::MENU_HINT_COOLDOWN_TIME <- 30;
-
-::TF_CLASSES <- [
-    "scout"
-    "sniper"
-    "soldier"
-    "demo"
-    "medic"
-    "heavy"
-    "pyro"
-    "spy"
-    "engie"
-    "civilian"
-]
 
 ::TF_TEAM_GREEN <- 4
 ::TF_TEAM_YELLOW <- 5
@@ -104,15 +103,16 @@ enum WeaponSlot
     Primary
     Secondary
     Melee
-    DisguiseKit
-    InvisWatch
+    PDA
+    PDA2
+    IvisWatch
+    Toolbox
+    Misc
     MAX
 }
 
 ::LOADOUT_SLOT_NAMES <- ["primary", "secondary", "melee"];
 ::LOADOUT_SLOT_IDS <- [WeaponSlot.Primary, WeaponSlot.Secondary, WeaponSlot.Melee];
-::LOADOUT_SLOT_NAMES_SPY <- ["secondary", "melee", "watch", "sapper"];
-::LOADOUT_SLOT_IDS_SPY <- [WeaponSlot.Primary, WeaponSlot.Melee, WeaponSlot.InvisWatch, WeaponSlot.Secondary];
 
 ::TF_AMMO_PRIMARY <- 1
 ::TF_AMMO_SECONDARY <- 2
@@ -406,3 +406,135 @@ enum WeaponSlot
     "RESIDUAL_HEAL"
     "BRICK"
 ];
+
+::WEAPONS <- {
+    [TF_CLASS_SCOUT] = {
+        [WeaponSlot.Primary] = [
+            {name = "Scattergun",item = "TF_WEAPON_SCATTERGUN"},
+            {name = "Nail Gun"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Pistol",id = 23,classname = "tf_weapon_pistol"},
+            {name = "Brick"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Bat",item = "TF_WEAPON_BAT"}
+        ]
+    },
+    [TF_CLASS_SOLDIER] = {
+        [WeaponSlot.Primary] = [
+            {name = "Rocket Launcher",item = "TF_WEAPON_ROCKETLAUNCHER"},
+            {name = "R.P.G."}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Shotgun",id = 10,classname = "tf_weapon_shotgun"},
+            {name = "Gunboats",item = "The Gunboats"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Shovel",item = "TF_WEAPON_SHOVEL"},
+            {name = "Admiralty Anchor"}
+        ]
+    },
+    [TF_CLASS_PYRO] = {
+        [WeaponSlot.Primary] = [
+            {name = "Flame Thrower",item = "TF_WEAPON_FLAMETHROWER"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Shotgun",id = 12,classname = "tf_weapon_shotgun"},
+            {name = "Flare Gun",item = "The Flare Gun"},
+            {name = "Twin Barrel"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Fire Axe",item = "TF_WEAPON_FIREAXE"},
+            {name = "Harvester"}
+        ]
+    },
+    [TF_CLASS_DEMOMAN] = {
+        [WeaponSlot.Primary] = [
+            {name = "Grenade Launcher",item = "TF_WEAPON_GRENADELAUNCHER"},
+            {name = "Gunboats",item = "Gunboats Demoman"},
+            {name = "Cyclops"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Stickybomb Launcher",item = "TF_WEAPON_PIPEBOMBLAUNCHER"},
+            {name = "Dynamite Pack"},
+            {name = "Mine Layer"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Bottle",item = "TF_WEAPON_BOTTLE"}
+        ]
+    },
+    [TF_CLASS_HEAVY] = {
+        [WeaponSlot.Primary] = [
+            {name = "Minigun",item = "TF_WEAPON_MINIGUN"},
+            {name = "Anti-Aircraft Cannon"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Shotgun",id = 11,classname = "tf_weapon_shotgun"},
+            {name = "Sandvich",item = "The Sandvich"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Fists",item = "TF_WEAPON_FISTS"},
+            {name = "Chekhov's Punch"}
+        ]
+    },
+    [TF_CLASS_ENGINEER] = {
+        [WeaponSlot.Primary] = [
+            {name = "Shotgun",id = 9,classname = "tf_weapon_shotgun"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Pistol",id = 22,classname = "tf_weapon_pistol"},
+            {name = "Coilgun"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Wrench",item = "TF_WEAPON_WRENCH"}
+        ]
+    },
+    [TF_CLASS_MEDIC] = {
+        [WeaponSlot.Primary] = [
+            {name = "Syringe Gun",item = "TF_WEAPON_SYRINGEGUN_MEDIC"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Medi Gun",item = "TF_WEAPON_MEDIGUN"},
+            {name = "Kritzkrieg",item = "The Kritzkrieg"},
+            {name = "Rejuvenator"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Bonesaw",item = "TF_WEAPON_BONESAW"},
+            {name = "Überspritze",item = "The Ubersaw"},
+            {name = "Shock Therapy"}
+        ]
+    },
+    [TF_CLASS_SNIPER] = {
+        [WeaponSlot.Primary] = [
+            {name = "Sniper Rifle",item = "TF_WEAPON_SNIPERRIFLE"},
+            {name = "Huntsman",item = "The Huntsman"},
+            {name = "Hunting Revolver"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "SMG",item = "TF_WEAPON_SMG"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Kukri",item = "TF_WEAPON_CLUB"},
+            {name = "Fishwhacker"}
+        ]
+    },
+    [TF_CLASS_SPY] = {
+        [WeaponSlot.Primary] = [
+            {name = "Revolver",item = "TF_WEAPON_REVOLVER"},
+            {name = "Tranquilizer Gun",item = "TF_WEAPON_TRANQ"}
+        ],
+        [WeaponSlot.Secondary] = [
+            {name = "Sapper",item = "TF_WEAPON_BUILDER_SPY"}
+        ],
+        [WeaponSlot.Melee] = [
+            {name = "Knife",item = "TF_WEAPON_KNIFE"}
+        ]
+    },
+    [TF_CLASS_CIVILIAN] = {
+        [WeaponSlot.Melee] = [
+            {name = "Umbrella"},
+            {name = "Derby Cane"}
+        ]
+    }
+}

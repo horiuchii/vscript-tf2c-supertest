@@ -309,3 +309,45 @@
         entity.Kill();
     return null;
 }
+
+::ConvertWeaponClassname <- function(class_index, classname)
+{
+    if(classname == "saxxy")
+    {
+        switch(class_index)
+        {
+            case TF_CLASS_SCOUT: classname = "tf_weapon_bat"; break;
+            case TF_CLASS_SOLDIER: classname = "tf_weapon_shovel"; break;
+            case TF_CLASS_PYRO: classname = "tf_weapon_fireaxe"; break;
+            case TF_CLASS_DEMOMAN: classname = "tf_weapon_bottle"; break;
+            case TF_CLASS_HEAVY: classname = "tf_weapon_fireaxe"; break;
+            case TF_CLASS_ENGINEER: classname = "tf_weapon_wrench"; break;
+            case TF_CLASS_MEDIC: classname = "tf_weapon_bonesaw"; break;
+            case TF_CLASS_SNIPER: classname = "tf_weapon_club"; break;
+            case TF_CLASS_SPY: classname = "tf_weapon_knife"; break;
+            default: classname = "tf_weapon_bat";
+        }
+    }
+
+    if(classname == "tf_weapon_shotgun")
+    {
+        switch(class_index)
+        {
+            case TF_CLASS_SOLDIER: classname = "tf_weapon_shotgun_soldier"; break;
+            case TF_CLASS_PYRO: classname = "tf_weapon_shotgun_pyro"; break;
+            case TF_CLASS_HEAVY: classname = "tf_weapon_shotgun_hwg"; break;
+            case TF_CLASS_ENGINEER: classname = "tf_weapon_shotgun_primary"; break;
+            default: classname = "tf_weapon_shotgun_primary";
+        }
+    }
+
+    if(classname == "tf_weapon_pistol")
+    {
+        switch(class_index)
+        {
+            case TF_CLASS_SCOUT: classname = "tf_weapon_pistol_scout"; break;
+        }
+    }
+
+    return classname;
+}
