@@ -42,6 +42,13 @@
         description = "Whether hitscan weapons\nshould have a fixed bullet spread."
     },
     {
+        name = "tf_use_circular_weaponspreads"
+        display_name = "Circular Bullet Spread"
+        options = [0, 1]
+        option_names = ["Off", "On"]
+        description = "Whether hitscan weapons should have\na their pattern fit within a circle."
+    },
+    {
         name = "tf_grapplinghook_enable"
         display_name = "Grapple Hook"
         options = [0, 1]
