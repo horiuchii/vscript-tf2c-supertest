@@ -1,5 +1,13 @@
 ::CHANGELOG <- [
 	{
+		name = "v1.2"
+		changelog = [
+		"Supertest Menu now uses default font."
+		"Added an option to make bots\nfire 1 second after button pressed."
+		"Removed redundant skybox textures in map files."
+		]
+	}
+	{
 		name = "v1.1"
 		changelog = [
 		"Adjusted Ambient and Shadow colors\nto make them more neutral colored."

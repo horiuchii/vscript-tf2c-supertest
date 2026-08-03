@@ -298,6 +298,24 @@ DefineMenu(class extends Menu{
             }
         },
         class extends MenuItem{
+            titles = ["Bot Fire (1s Delay)"];
+
+            function GenerateDesc(player)
+            {
+                return "";
+            }
+
+            function OnSelected(player)
+            {
+                RunWithDelay(this, 1.0, function(){
+                    foreach(player in bots)
+                    {
+                        player.GetActiveWeapon().PrimaryAttack()
+                    }
+                })
+            }
+        },
+        class extends MenuItem{
             titles = [];
 
             function OnMenuOpened(player)

@@ -7,7 +7,6 @@
     fadein = 0
     fadeout = 0
     message = " "
-    font = "SupertestFont12"
 });
 
 SetPropBool(hud_text, "m_bForcePurgeFixedupStrings", true);
