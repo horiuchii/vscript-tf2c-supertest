@@ -9,9 +9,9 @@
     {
         name = "tf2c_infinite_ammo"
         display_name = "Infinite Ammo"
-        options = [0, 1]
-        option_names = ["Off", "On"]
-        description = "Whether metal and reserve ammo will be\ninfinite. Weapons still need to be reloaded."
+        options = [0, 1, 2]
+        option_names = ["None", "Infinite Reserve", "Infinite Reserve + Clip"]
+        description = "Whether metal and reserve ammo or clip will be infinite."
     },
     {
         name = "weapon_medigun_charge_rate"

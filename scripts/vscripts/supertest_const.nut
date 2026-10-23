@@ -525,7 +525,7 @@ enum WeaponSlot
             {name = "Tranquilizer Gun",item = "TF_WEAPON_TRANQ"}
         ],
         [WeaponSlot.Secondary] = [
-            {name = "Sapper",item = "TF_WEAPON_BUILDER_SPY"}
+            {name = "Sapper",id = 735,classname = "tf_weapon_builder"}
         ],
         [WeaponSlot.Melee] = [
             {name = "Knife",item = "TF_WEAPON_KNIFE"}

@@ -74,6 +74,16 @@ ServerCookies.AddCookie("spawn_civ_bot", 1);
             SetPropInt(entity, NETPROP_ITEMDEFINDEX, item.id);
             SetPropBool(entity, NETPROP_INITIALIZED, true);
             SetPropBool(entity, NETPROP_VALIDATED_ATTACHED, true);
+
+
+            if(entity.GetClassname() == "tf_weapon_builder")
+            {
+                SetPropInt(entity, "m_iObjectType", 3);
+                SetPropInt(entity, "m_iSubType", 3);
+                SetPropInt(entity, "m_iObjectMode", 0);
+                SetPropBoolArray(entity, "m_aBuildableObjectTypes", true, 3);
+            }
+
             entity.SetTeam(GetTeam());
             entity.DispatchSpawn();
             Weapon_Equip(entity);

@@ -45,6 +45,7 @@ function LookAtTarget()
     local angles = QAngle(lerp(current_angles.x, pitch, CAM_LERP), lerp(current_angles.y, yaw, CAM_LERP), 0);
     self.SetAbsAngles(angles);
 
+/*
 	if(fabs(current_angles.x-angles.x) > CAM_SOUND_DIST || fabs(current_angles.y-angles.y) > CAM_SOUND_DIST)
 	{
 		if(!scope["sound_playing"])
@@ -68,6 +69,7 @@ function LookAtTarget()
 			flags = SND_STOP
 		})
 	}
+*/
 }
 
 function UpdateTarget()

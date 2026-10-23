@@ -1,5 +1,19 @@
 ::CHANGELOG <- [
 	{
+		name = "v1.2.2"
+		changelog = [
+		"Added an additional water pool to the outside."
+		"Added armor pickups."
+		"Added chickens."
+		]
+	}
+	{
+		name = "v1.2.1"
+		changelog = [
+		"Fixed a crash when spawning bots."
+		]
+	}
+	{
 		name = "v1.2"
 		changelog = [
 		"Supertest Menu now uses default font."

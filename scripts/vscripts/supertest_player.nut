@@ -175,20 +175,6 @@ ListenToGameEvent("player_team", function(params)
         SetCurrency(30000);
     }
 
-    AddCustomAttribute("mod see enemy health", Cookies.Get(this, "see_enemy_target_id"), -1);
-
-    if(Cookies.Get(this, "inf_clip"))
-    {
-        for(local i = 0; i < MAX_WEAPONS; i++)
-        {
-            local heldWeapon = GetPropEntityArray(this, "m_hMyWeapons", i);
-            if(!heldWeapon)
-                continue;
-
-            heldWeapon.SetClip1(heldWeapon.GetMaxClip1());
-        }
-    }
-
     if(Cookies.Get(this, "show_conds"))
     {
         DrawConditions();
